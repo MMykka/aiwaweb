@@ -5,11 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/hero.css">
     <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/logoloop.css">
+    <link rel="stylesheet" href="css/card.css">
+    <link rel="stylesheet" href="css/workflows.css">
+    <link rel="stylesheet" href="css/cta.css">
+    <link rel="stylesheet" href="css/footer.css">
     <title>AIWA</title>
     
 </head>
 <body>
-
+<!-- NAV BAR -->
       <nav class="navbar" id="navbar">
         <div class="navbar-container">
             <div class="navbar-left">
@@ -86,7 +91,7 @@
         <a href="#" class="btn btn-demo">Get demo</a>
     </div>
 
-    
+    <!-- HERO SECTION -->
 
   <section class="herobg">
     <div class="container">
@@ -102,326 +107,449 @@
         
     </div>
 </section>
-      <script>
-        // Navbar shrink on scroll
-        const navbar = document.getElementById('navbar');
-        let lastScroll = 0;
 
-        window.addEventListener('scroll', () => {
-            const currentScroll = window.pageYOffset;
+<!-- GLOW SECTION -->
+ <section class="bolt-hero-section">
+        <div class="bolt-orb-container">
+            <div class="bolt-orb-line"></div>
+            <div class="bolt-orb"></div>
+            <div class="bolt-glow-effect"></div>
+        </div>
 
-            if (currentScroll > 20) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
+        <div class="bolt-hero-content">
+            <h1 class="bolt-hero-title">
+                Empowering product builders<br>
+                with the <span class="bolt-hero-highlight">most powerful coding agents</span>
+            </h1>
+            <p class="bolt-hero-subtitle">
+                AIWA does the heavy lifting for you, so you can focus on<br>
+                your vision instead of fighting errors.
+            </p>
+        </div>
+    </section>
 
-            lastScroll = currentScroll;
-        });
 
-        // Mobile menu toggle
-        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-        const mobileMenu = document.getElementById('mobileMenu');
 
-        mobileMenuToggle.addEventListener('click', () => {
-            mobileMenu.classList.toggle('active');
-        });
+<!-- CARDS SECTIONS -->
 
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!mobileMenu.contains(e.target) && !mobileMenuToggle.contains(e.target)) {
-                mobileMenu.classList.remove('active');
-            }
-        });
 
-        // Close mobile menu when clicking a link
-        mobileMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.remove('active');
-            });
-        });
+      <div class="main-container">
+        <!-- Feature Cards Grid -->
+        <div class="feature-cards-grid">
+            <!-- AI Tools Card -->
+            <div class="feature-card ai-tools-card">
+                <div class="ai-tools-content">
+                    <h2>Always the best, without switching tools</h2>
+                    <p>Bolt integrates the frontier coding agents from the AI labs directly inside one familiar visual interface. No more AI anxiety or juggling multiple platforms.</p>
+                </div>
+                <div class="ai-tools-list">
+                    <div class="ai-tool-item active">
+                        <span class="ai-tool-icon">🌟</span>
+                        <span class="ai-tool-name">Claude Code</span>
+                        <span class="ai-tool-status"></span>
+                    </div>
+                    <div class="ai-tool-item">
+                        <span class="ai-tool-icon">⏱️</span>
+                        <span class="ai-tool-name">Codex</span>
+                        <span class="ai-tool-status">coming soon</span>
+                    </div>
+                    <div class="ai-tool-item">
+                        <span class="ai-tool-icon">💎</span>
+                        <span class="ai-tool-name">Gemini</span>
+                        <span class="ai-tool-status">coming soon</span>
+                    </div>
+                </div>
+            </div>
 
-        // Optional: Theme toggle functionality
-        const themeToggle = document.getElementById('themeToggle');
-        themeToggle.addEventListener('click', () => {
-            document.body.style.background = document.body.style.background.includes('1a1a2e') 
-                ? 'linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)' 
-                : 'linear-gradient(135deg, #1a1a2e 0%, #16213e 100%)';
-        });
-    </script>
+            <!-- Second Row -->
+            <div class="feature-row">
+                <!-- Stats Card -->
+                <div class="feature-card stats-card">
+                    <div class="stats-number">98%</div>
+                    <div class="stats-label">less errors</div>
+                    <p class="stats-description">Bolt automatically tests, refactors, and iterates reducing errors so you keep building instead of fixing.</p>
+                </div>
 
-    <!-- <script type="module">
-        // OGL Library - Minimal imports needed
-        class Renderer {
-            constructor({ dpr = 1, canvas }) {
-                this.dpr = dpr;
-                this.canvas = canvas;
-                this.gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
-                if (!this.gl) {
-                    console.error('WebGL not supported');
-                }
-            }
+                <!-- Build Card -->
+                <div class="feature-card build-card">
+                    <h3>Build big without breaking</h3>
+                    <p>Bolt handles <strong>projects 1,000 times larger</strong> than before. It's improved built-in context management can handle complexity and keep your projects running smoothly.</p>
+                    <div class="build-visual">
+                        <div class="build-multiplier">1000x</div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-            setSize(width, height) {
-                this.canvas.width = width * this.dpr;
-                this.canvas.height = height * this.dpr;
-                this.canvas.style.width = width + 'px';
-                this.canvas.style.height = height + 'px';
-                this.gl.viewport(0, 0, this.canvas.width, this.canvas.height);
-            }
+        <!-- Animated Card Section -->
+        <section class="animated-card-section">
+            <div class="card-wrapper">
+                <div class="animated-card glow-white" id="animatedCard">
+                    <div class="card-glow glow-white" id="cardGlow"></div>
+                    <div class="card-content" id="cardContent">
+                        <!-- Content will be dynamically inserted here -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
 
-            render({ scene }) {
-                this.gl.clearColor(0, 0, 0, 1);
-                this.gl.clear(this.gl.COLOR_BUFFER_BIT);
-                scene.draw();
-            }
-        }
 
-        class Vec2 {
-            constructor(x = 0, y = 0) {
-                this.x = x;
-                this.y = y;
-            }
 
-            set(x, y) {
-                this.x = x;
-                this.y = y;
-                return this;
-            }
-        }
+<!-- CAROUSEL LOGO -->
 
-        class Triangle {
-            constructor(gl) {
-                this.gl = gl;
-                this.position = new Float32Array([-1, -1, 3, -1, -1, 3]);
-                this.buffer = gl.createBuffer();
-                gl.bindBuffer(gl.ARRAY_BUFFER, this.buffer);
-                gl.bufferData(gl.ARRAY_BUFFER, this.position, gl.STATIC_DRAW);
-            }
-        }
 
-        class Program {
-            constructor(gl, { vertex, fragment, uniforms = {} }) {
-                this.gl = gl;
-                this.uniforms = uniforms;
-                
-                const vertexShader = this.createShader(gl.VERTEX_SHADER, vertex);
-                const fragmentShader = this.createShader(gl.FRAGMENT_SHADER, fragment);
-                
-                this.program = gl.createProgram();
-                gl.attachShader(this.program, vertexShader);
-                gl.attachShader(this.program, fragmentShader);
-                gl.linkProgram(this.program);
-                
-                if (!gl.getProgramParameter(this.program, gl.LINK_STATUS)) {
-                    console.error('Program link error:', gl.getProgramInfoLog(this.program));
-                }
-                
-                this.uniformLocations = {};
-                for (let name in uniforms) {
-                    this.uniformLocations[name] = gl.getUniformLocation(this.program, name);
-                }
-            }
+    <section class="carousel-logos">
+         <section class="integrations-section">
+        <div class="integrations-badge">Integrations</div>
+        <h2 class="integrations-title">Integrations supported.</h2>
+        <p class="integrations-description">
+            From social media platforms to ecommerce and design software, our integrations make it easy to keep everything connected.
+        </p>
+    </section>
+    <div style="height: 70px; position: relative; overflow: hidden; margin: 20px;">
+        <!-- Basic horizontal loop -->
+        <div id="logoloop1" class="logoloop-container"></div>
+    </div>
+    <div style="height: 70px; position: relative; overflow: hidden; margin: 20px;">
+        <!-- Basic horizontal loop -->
+        <div id="logoloop2" class="logoloop-container"></div>
+    </div>
+     <div style="height: 70px; position: relative; overflow: hidden; margin: 20px;">
+        <!-- Basic horizontal loop -->
+        <div id="logoloop3" class="logoloop-container"></div>
+    </div>
+</section>
 
-            createShader(type, source) {
-                const shader = this.gl.createShader(type);
-                this.gl.shaderSource(shader, source);
-                this.gl.compileShader(shader);
-                
-                if (!this.gl.getShaderParameter(shader, this.gl.COMPILE_STATUS)) {
-                    console.error('Shader compile error:', this.gl.getShaderInfoLog(shader));
-                }
-                
-                return shader;
-            }
-        }
 
-        class Mesh {
-            constructor(gl, { geometry, program }) {
-                this.gl = gl;
-                this.geometry = geometry;
-                this.program = program;
-            }
+<!-- SECOND CARD SECTION -->
 
-            draw() {
-                const gl = this.gl;
-                gl.useProgram(this.program.program);
-                
-                // Set uniforms
-                for (let name in this.program.uniforms) {
-                    const uniform = this.program.uniforms[name];
-                    const location = this.program.uniformLocations[name];
-                    
-                    if (uniform.value instanceof Vec2) {
-                        gl.uniform2f(location, uniform.value.x, uniform.value.y);
-                    } else if (typeof uniform.value === 'number') {
-                        gl.uniform1f(location, uniform.value);
-                    }
-                }
-                
-                // Set position attribute
-                const positionLocation = gl.getAttribLocation(this.program.program, 'position');
-                gl.bindBuffer(gl.ARRAY_BUFFER, this.geometry.buffer);
-                gl.enableVertexAttribArray(positionLocation);
-                gl.vertexAttribPointer(positionLocation, 2, gl.FLOAT, false, 0, 0);
-                
-                gl.drawArrays(gl.TRIANGLES, 0, 3);
-            }
-        }
+<section class="integrations-section">
+        <div class="integrations-badge">Automations</div>
+        <h2 class="integrations-title">And with workflows - you <br>set the rules.</h2>
+        <p class="integrations-description">
+            Sometimes, stories move faster than approval processes. Create workflows with various triggers to automatically generate content.
+        </p>
+    </section>
+<section class="workflow-cards-section">
+  <div class="cards-container">
+    <!-- Card 1: Scheduled trigger -->
+    <div class="workflow-card">
+      <h3 class="card-title">Scheduled trigger</h3>
+      <p class="card-description">
+        Content creation on a regular schedule. Trigger every few hours or days - perfect for consistent brand presence.
+      </p>
+      <div class="workflow-steps">
+        <div class="step-item" data-step="1">
+          <div class="step-icon yellow">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 6V12L16 14M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <span class="step-label">Every 2 days</span>
+        </div>
+        <div class="connector" data-connector="1"></div>
+        <div class="step-item" data-step="2">
+          <div class="step-icon white">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 20H21M3.00003 20L3 16L14.7273 4.27273C15.5084 3.49167 16.7678 3.49167 17.5489 4.27273L19.5228 6.24667C20.3038 7.02773 20.3038 8.28713 19.5228 9.06819L7.79549 20.7955L3.00003 20Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <span class="step-label">Write AI caption</span>
+        </div>
+        <div class="connector" data-connector="2"></div>
+        <div class="step-item" data-step="3">
+          <div class="step-icon white">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 16L8.58579 11.4142C9.36684 10.6332 10.6332 10.6332 11.4142 11.4142L16 16M14 14L15.5858 12.4142C16.3668 11.6332 17.6332 11.6332 18.4142 12.4142L20 14M14 8H14.01M6 20H18C19.1046 20 20 19.1046 20 18V6C20 4.89543 19.1046 4 18 4H6C4.89543 4 4 4.89543 4 6V18C4 19.1046 4.89543 20 6 20Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <span class="step-label">Create AI image</span>
+        </div>
+        <div class="connector" data-connector="3"></div>
+        <div class="step-item" data-step="4">
+          <div class="step-icon blue">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <span class="step-label">Publish social post</span>
+        </div>
+      </div>
+    </div>
 
-        // Shader code
-        const vertex = `
-attribute vec2 position;
-void main(){gl_Position=vec4(position,0.0,1.0);}
-`;
+    <!-- Card 2: RSS trigger -->
+    <div class="workflow-card">
+      <h3 class="card-title">RSS trigger</h3>
+      <p class="card-description">
+        Connect your blog or content feed to automatically turn new posts into social content.
+      </p>
+      <div class="workflow-steps">
+        <div class="step-item" data-step="1">
+          <div class="step-icon green">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6 6C6 6 6 8 6 12C6 16 6 18 6 18M10 10C10 10 10 11 10 12C10 13 10 14 10 14M6 18C7.10457 18 8 17.1046 8 16C8 14.8954 7.10457 14 6 14C4.89543 14 4 14.8954 4 16C4 17.1046 4.89543 18 6 18Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <span class="step-label">New RSS item</span>
+        </div>
+        <div class="connector" data-connector="1"></div>
+        <div class="step-item" data-step="2">
+          <div class="step-icon white">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M13 10V3L4 14H11L11 21L20 10L13 10Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <span class="step-label">Use AI agent</span>
+        </div>
+        <div class="connector" data-connector="2"></div>
+        <div class="step-item" data-step="3">
+          <div class="step-icon blue">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <span class="step-label">Publish social post</span>
+        </div>
+      </div>
+    </div>
 
-        const fragment = `
-#ifdef GL_ES
-precision lowp float;
-#endif
-uniform vec2 uResolution;
-uniform float uTime;
-uniform float uHueShift;
-uniform float uNoise;
-uniform float uScan;
-uniform float uScanFreq;
-uniform float uWarp;
-#define iTime uTime
-#define iResolution uResolution
+    <!-- Card 3: New product release -->
+    <div class="workflow-card">
+      <h3 class="card-title">New product release</h3>
+      <p class="card-description">
+        Transform product updates into marketing content. When a new product is added, post about it.
+      </p>
+      <div class="workflow-steps">
+        <div class="step-item" data-step="1">
+          <div class="step-icon purple">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 3H5L5.4 5M7 13H17L21 5H5.4M7 13L5.4 5M7 13L4.70711 15.2929C4.07714 15.9229 4.52331 17 5.41421 17H17M17 17C15.8954 17 15 17.8954 15 19C15 20.1046 15.8954 21 17 21C18.1046 21 19 20.1046 19 19C19 17.8954 18.1046 17 17 17ZM9 19C9 20.1046 8.10457 21 7 21C5.89543 21 5 20.1046 5 19C5 17.8954 5.89543 17 7 17C8.10457 17 9 17.8954 9 19Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <span class="step-label">New Woocommerce product</span>
+        </div>
+        <div class="connector" data-connector="1"></div>
+        <div class="step-item" data-step="2">
+          <div class="step-icon white">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 20H21M3.00003 20L3 16L14.7273 4.27273C15.5084 3.49167 16.7678 3.49167 17.5489 4.27273L19.5228 6.24667C20.3038 7.02773 20.3038 8.28713 19.5228 9.06819L7.79549 20.7955L3.00003 20Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <span class="step-label">Write AI caption</span>
+        </div>
+        <div class="connector" data-connector="2"></div>
+        <div class="step-item" data-step="3">
+          <div class="step-icon coral">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M16 11V7C16 4.79086 14.2091 3 12 3C9.79086 3 8 4.79086 8 7V11M5 11H19L20 21H4L5 11Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <span class="step-label">Select product images</span>
+        </div>
+        <div class="connector" data-connector="3"></div>
+        <div class="step-item" data-step="4">
+          <div class="step-icon blue">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <span class="step-label">Publish social post</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-vec4 buf[8];
-float rand(vec2 c){return fract(sin(dot(c,vec2(12.9898,78.233)))*43758.5453);}
+<!-- THIRD CARD -->
 
-mat3 rgb2yiq=mat3(0.299,0.587,0.114,0.596,-0.274,-0.322,0.211,-0.523,0.312);
-mat3 yiq2rgb=mat3(1.0,0.956,0.621,1.0,-0.272,-0.647,1.0,-1.106,1.703);
+<section class="integrations-section">
+        <div class="integrations-badge">Publishing</div>
+        <h2 class="integrations-title">Everything you need to scale</h2>
+        <p class="integrations-description">
+Stop stitching together platforms. AIWA Cloud gives you enterprise-grade backend infrastructure including hosting, databases, integrations and more.
+        </p>
+    </section>
+<section class="bolt-features-grid-section">
+  <div class="bolt-features-container">
+    <div class="bolt-features-grid">
+      <!-- Card 1: Unlimited databases -->
+      <div class="bolt-feature-card bolt-card-databases">
+        <h3 class="bolt-feature-title">Unlimited databases</h3>
+        <div class="bolt-feature-image">
+          <!-- Add your image here -->
+          <img src="path/to/infinity-icon.png" alt="Unlimited databases">
+        </div>
+      </div>
 
-vec3 hueShiftRGB(vec3 col,float deg){
-    vec3 yiq=rgb2yiq*col;
-    float rad=radians(deg);
-    float cosh=cos(rad),sinh=sin(rad);
-    vec3 yiqShift=vec3(yiq.x,yiq.y*cosh-yiq.z*sinh,yiq.y*sinh+yiq.z*cosh);
-    return clamp(yiq2rgb*yiqShift,0.0,1.0);
-}
+      <!-- Card 2: Enterprise-grade -->
+      <div class="bolt-feature-card bolt-card-enterprise">
+        <h3 class="bolt-feature-title">Enterprise-grade</h3>
+        <div class="bolt-feature-image">
+          <!-- Add your image here -->
+          <img src="path/to/graph-icon.png" alt="Enterprise-grade">
+        </div>
+      </div>
 
-vec4 sigmoid(vec4 x){return 1./(1.+exp(-x));}
+      <!-- Card 3: User Management & Authentication -->
+      <div class="bolt-feature-card bolt-card-auth">
+        <h3 class="bolt-feature-title">User Management & Authentication</h3>
+        <div class="bolt-feature-image">
+          <!-- Add your image here -->
+          <img src="path/to/lock-icon.png" alt="User Management & Authentication">
+        </div>
+      </div>
 
-vec4 cppn_fn(vec2 coordinate,float in0,float in1,float in2){
-    buf[6]=vec4(coordinate.x,coordinate.y,0.3948333106474662+in0,0.36+in1);
-    buf[7]=vec4(0.14+in2,sqrt(coordinate.x*coordinate.x+coordinate.y*coordinate.y),0.,0.);
-    buf[0]=mat4(vec4(6.5404263,-3.6126034,0.7590882,-1.13613),vec4(2.4582713,3.1660357,1.2219609,0.06276096),vec4(-5.478085,-6.159632,1.8701609,-4.7742867),vec4(6.039214,-5.542865,-0.90925294,3.251348))*buf[6]+mat4(vec4(0.8473259,-5.722911,3.975766,1.6522468),vec4(-0.24321538,0.5839259,-1.7661959,-5.350116),vec4(0.,0.,0.,0.),vec4(0.,0.,0.,0.))*buf[7]+vec4(0.21808943,1.1243913,-1.7969975,5.0294676);
-    buf[1]=mat4(vec4(-3.3522482,-6.0612736,0.55641043,-4.4719114),vec4(0.8631464,1.7432913,5.643898,1.6106541),vec4(2.4941394,-3.5012043,1.7184316,6.357333),vec4(3.310376,8.209261,1.1355612,-1.165539))*buf[6]+mat4(vec4(5.24046,-13.034365,0.009859298,15.870829),vec4(2.987511,3.129433,-0.89023495,-1.6822904),vec4(0.,0.,0.,0.),vec4(0.,0.,0.,0.))*buf[7]+vec4(-5.9457836,-6.573602,-0.8812491,1.5436668);
-    buf[0]=sigmoid(buf[0]);buf[1]=sigmoid(buf[1]);
-    buf[2]=mat4(vec4(-15.219568,8.095543,-2.429353,-1.9381982),vec4(-5.951362,4.3115187,2.6393783,1.274315),vec4(-7.3145227,6.7297835,5.2473326,5.9411426),vec4(5.0796127,8.979051,-1.7278991,-1.158976))*buf[6]+mat4(vec4(-11.967154,-11.608155,6.1486754,11.237008),vec4(2.124141,-6.263192,-1.7050359,-0.7021966),vec4(0.,0.,0.,0.),vec4(0.,0.,0.,0.))*buf[7]+vec4(-4.17164,-3.2281182,-4.576417,-3.6401186);
-    buf[3]=mat4(vec4(3.1832156,-13.738922,1.879223,3.233465),vec4(0.64300746,12.768129,1.9141049,0.50990224),vec4(-0.049295485,4.4807224,1.4733979,1.801449),vec4(5.0039253,13.000481,3.3991797,-4.5561905))*buf[6]+mat4(vec4(-0.1285731,7.720628,-3.1425676,4.742367),vec4(0.6393625,3.714393,-0.8108378,-0.39174938),vec4(0.,0.,0.,0.),vec4(0.,0.,0.,0.))*buf[7]+vec4(-1.1811101,-21.621881,0.7851888,1.2329718);
-    buf[2]=sigmoid(buf[2]);buf[3]=sigmoid(buf[3]);
-    buf[4]=mat4(vec4(5.214916,-7.183024,2.7228765,2.6592617),vec4(-5.601878,-25.3591,4.067988,0.4602802),vec4(-10.57759,24.286327,21.102104,37.546658),vec4(4.3024497,-1.9625226,2.3458803,-1.372816))*buf[0]+mat4(vec4(-17.6526,-10.507558,2.2587414,12.462782),vec4(6.265566,-502.75443,-12.642513,0.9112289),vec4(-10.983244,20.741234,-9.701768,-0.7635988),vec4(5.383626,1.4819539,-4.1911616,-4.8444734))*buf[1]+mat4(vec4(12.785233,-16.345072,-0.39901125,1.7955981),vec4(-30.48365,-1.8345358,1.4542528,-1.1118771),vec4(19.872723,-7.337935,-42.941723,-98.52709),vec4(8.337645,-2.7312303,-2.2927687,-36.142323))*buf[2]+mat4(vec4(-16.298317,3.5471997,-0.44300047,-9.444417),vec4(57.5077,-35.609753,16.163465,-4.1534753),vec4(-0.07470326,-3.8656476,-7.0901804,3.1523974),vec4(-12.559385,-7.077619,1.490437,-0.8211543))*buf[3]+vec4(-7.67914,15.927437,1.3207729,-1.6686112);
-    buf[5]=mat4(vec4(-1.4109162,-0.372762,-3.770383,-21.367174),vec4(-6.2103205,-9.35908,0.92529047,8.82561),vec4(11.460242,-22.348068,13.625772,-18.693201),vec4(-0.3429052,-3.9905605,-2.4626114,-0.45033523))*buf[0]+mat4(vec4(7.3481627,-4.3661838,-6.3037653,-3.868115),vec4(1.5462853,6.5488915,1.9701879,-0.58291394),vec4(6.5858274,-2.2180402,3.7127688,-1.3730392),vec4(-5.7973905,10.134961,-2.3395722,-5.965605))*buf[1]+mat4(vec4(-2.5132585,-6.6685553,-1.4029363,-0.16285264),vec4(-0.37908727,0.53738135,4.389061,-1.3024765),vec4(-0.70647055,2.0111287,-5.1659346,-3.728635),vec4(-13.562562,10.487719,-0.9173751,-2.6487076))*buf[2]+mat4(vec4(-8.645013,6.5546675,-6.3944063,-5.5933375),vec4(-0.57783127,-1.077275,36.91025,5.736769),vec4(14.283112,3.7146652,7.1452246,-4.5958776),vec4(2.7192075,3.6021907,-4.366337,-2.3653464))*buf[3]+vec4(-5.9000807,-4.329569,1.2427121,8.59503);
-    buf[4]=sigmoid(buf[4]);buf[5]=sigmoid(buf[5]);
-    buf[6]=mat4(vec4(-1.61102,0.7970257,1.4675229,0.20917463),vec4(-28.793737,-7.1390953,1.5025433,4.656581),vec4(-10.94861,39.66238,0.74318546,-10.095605),vec4(-0.7229728,-1.5483948,0.7301322,2.1687684))*buf[0]+mat4(vec4(3.2547753,21.489103,-1.0194173,-3.3100595),vec4(-3.7316632,-3.3792162,-7.223193,-0.23685838),vec4(13.1804495,0.7916005,5.338587,5.687114),vec4(-4.167605,-17.798311,-6.815736,-1.6451967))*buf[1]+mat4(vec4(0.604885,-7.800309,-7.213122,-2.741014),vec4(-3.522382,-0.12359311,-0.5258442,0.43852118),vec4(9.6752825,-22.853785,2.062431,0.099892326),vec4(-4.3196306,-17.730087,2.5184598,5.30267))*buf[2]+mat4(vec4(-6.545563,-15.790176,-6.0438633,-5.415399),vec4(-43.591583,28.551912,-16.00161,18.84728),vec4(4.212382,8.394307,3.0958717,8.657522),vec4(-5.0237565,-4.450633,-4.4768,-5.5010443))*buf[3]+mat4(vec4(1.6985557,-67.05806,6.897715,1.9004834),vec4(1.8680354,2.3915145,2.5231109,4.081538),vec4(11.158006,1.7294737,2.0738268,7.386411),vec4(-4.256034,-306.24686,8.258898,-17.132736))*buf[4]+mat4(vec4(1.6889864,-4.5852966,3.8534803,-6.3482175),vec4(1.3543309,-1.2640043,9.932754,2.9079645),vec4(-5.2770967,0.07150358,-0.13962056,3.3269649),vec4(28.34703,-4.918278,6.1044083,4.085355))*buf[5]+vec4(6.6818056,12.522166,-3.7075126,-4.104386);
-    buf[7]=mat4(vec4(-8.265602,-4.7027016,5.098234,0.7509808),vec4(8.6507845,-17.15949,16.51939,-8.884479),vec4(-4.036479,-2.3946867,-2.6055532,-1.9866527),vec4(-2.2167742,-1.8135649,-5.9759874,4.8846445))*buf[0]+mat4(vec4(6.7790847,3.5076547,-2.8191125,-2.7028968),vec4(-5.743024,-0.27844876,1.4958696,-5.0517144),vec4(13.122226,15.735168,-2.9397483,-4.101023),vec4(-14.375265,-5.030483,-6.2599335,2.9848232))*buf[1]+mat4(vec4(4.0950394,-0.94011575,-5.674733,4.755022),vec4(4.3809423,4.8310084,1.7425908,-3.437416),vec4(2.117492,0.16342592,-104.56341,16.949184),vec4(-5.22543,-2.994248,3.8350096,-1.9364246))*buf[2]+mat4(vec4(-5.900337,1.7946124,-13.604192,-3.8060522),vec4(6.6583457,31.911177,25.164474,91.81147),vec4(11.840538,4.1503043,-0.7314397,6.768467),vec4(-6.3967767,4.034772,6.1714606,-0.32874924))*buf[3]+mat4(vec4(3.4992442,-196.91893,-8.923708,2.8142626),vec4(3.4806502,-3.1846354,5.1725626,5.1804223),vec4(-2.4009497,15.585794,1.2863957,2.0252278),vec4(-71.25271,-62.441242,-8.138444,0.50670296))*buf[4]+mat4(vec4(-12.291733,-11.176166,-7.3474145,4.390294),vec4(10.805477,5.6337385,-0.9385842,-4.7348723),vec4(-12.869276,-7.039391,5.3029537,7.5436664),vec4(1.4593618,8.91898,3.5101583,5.840625))*buf[5]+vec4(2.2415268,-6.705987,-0.98861027,-2.117676);
-    buf[6]=sigmoid(buf[6]);buf[7]=sigmoid(buf[7]);
-    buf[0]=mat4(vec4(1.6794263,1.3817469,2.9625452,0.),vec4(-1.8834411,-1.4806935,-3.5924516,0.),vec4(-1.3279216,-1.0918057,-2.3124623,0.),vec4(0.2662234,0.23235129,0.44178495,0.))*buf[0]+mat4(vec4(-0.6299101,-0.5945583,-0.9125601,0.),vec4(0.17828953,0.18300213,0.18182953,0.),vec4(-2.96544,-2.5819945,-4.9001055,0.),vec4(1.4195864,1.1868085,2.5176322,0.))*buf[1]+mat4(vec4(-1.2584374,-1.0552157,-2.1688404,0.),vec4(-0.7200217,-0.52666044,-1.438251,0.),vec4(0.15345335,0.15196142,0.272854,0.),vec4(0.945728,0.8861938,1.2766753,0.))*buf[2]+mat4(vec4(-2.4218085,-1.968602,-4.35166,0.),vec4(-22.683098,-18.0544,-41.954372,0.),vec4(0.63792,0.5470648,1.1078634,0.),vec4(-1.5489894,-1.3075932,-2.6444845,0.))*buf[3]+mat4(vec4(-0.49252132,-0.39877754,-0.91366625,0.),vec4(0.95609266,0.7923952,1.640221,0.),vec4(0.30616966,0.15693925,0.8639857,0.),vec4(1.1825981,0.94504964,2.176963,0.))*buf[4]+mat4(vec4(0.35446745,0.3293795,0.59547555,0.),vec4(-0.58784515,-0.48177817,-1.0614829,0.),vec4(2.5271258,1.9991658,4.6846647,0.),vec4(0.13042648,0.08864098,0.30187556,0.))*buf[5]+mat4(vec4(-1.7718065,-1.4033192,-3.3355875,0.),vec4(3.1664357,2.638297,5.378702,0.),vec4(-3.1724713,-2.6107926,-5.549295,0.),vec4(-2.851368,-2.249092,-5.3013067,0.))*buf[6]+mat4(vec4(1.5203838,1.2212278,2.8404984,0.),vec4(1.5210563,1.2651345,2.683903,0.),vec4(2.9789467,2.4364579,5.2347264,0.),vec4(2.2270417,1.8825914,3.8028636,0.))*buf[7]+vec4(-1.5468478,-3.6171484,0.24762098,0.);
-    buf[0]=sigmoid(buf[0]);
-    return vec4(buf[0].x,buf[0].y,buf[0].z,1.);
-}
+      <!-- Card 4: SEO optimization -->
+      <div class="bolt-feature-card bolt-card-seo">
+        <h3 class="bolt-feature-title-small">SEO optimization so your project ranks from day one.</h3>
+        <div class="bolt-feature-image">
+          <!-- Add your image here -->
+          <img src="path/to/100-icon.png" alt="SEO optimization">
+        </div>
+      </div>
 
-void mainImage(out vec4 fragColor,in vec2 fragCoord){
-    vec2 uv=fragCoord/uResolution.xy*2.-1.;
-    uv.y*=-1.;
-    uv+=uWarp*vec2(sin(uv.y*6.283+uTime*0.5),cos(uv.x*6.283+uTime*0.5))*0.05;
-    fragColor=cppn_fn(uv,0.1*sin(0.3*uTime),0.1*sin(0.69*uTime),0.1*sin(0.44*uTime));
-}
+      <!-- Card 5: Hosting with analytics & custom domains -->
+      <div class="bolt-feature-card bolt-card-hosting">
+        <h3 class="bolt-feature-title">Hosting with analytics & custom domains</h3>
+        <div class="bolt-feature-image">
+          <!-- Add your image here -->
+          <img src="path/to/publish-button.png" alt="Hosting">
+        </div>
+      </div>
+    </div>
 
-void main(){
-    vec4 col;mainImage(col,gl_FragCoord.xy);
-    col.rgb=hueShiftRGB(col.rgb,uHueShift);
-    float scanline_val=sin(gl_FragCoord.y*uScanFreq)*0.5+0.5;
-    col.rgb*=1.-(scanline_val*scanline_val)*uScan;
-    col.rgb+=(rand(gl_FragCoord.xy+uTime)-0.5)*uNoise;
-    gl_FragColor=vec4(clamp(col.rgb,0.0,1.0),1.0);
-}
-`;
+    <!-- Bottom text -->
+    <div class="bolt-features-footer">
+      <p class="bolt-features-tagline">
+        Bolt gives you everything you need inside one familiar interface no extra accounts, no steep learning curve.
+      </p>
+    </div>
+  </div>
+</section>
 
-        // DarkVeil initialization
-        function initDarkVeil(canvas, options = {}) {
-            const {
-                hueShift = 38,
-                noiseIntensity = 0,
-                scanlineIntensity = 0,
-                speed = 1.5,
-                scanlineFrequency = 0.5,
-                warpAmount = 0,
-                resolutionScale = 1
-            } = options;
 
-            const parent = canvas.parentElement;
 
-            const renderer = new Renderer({
-                dpr: Math.min(window.devicePixelRatio, 2),
-                canvas
-            });
+<!-- CTA SECTION -->
+<section class="cta-section">
+  <div class="cta-container">
+    <h2 class="cta-title">Don't pay for agencies. Join us.</h2>
+    <p class="cta-description">
+      Explore an entirely fresh approach to social media management.
+    </p>
+    <button class="cta-button">
+      Sign up
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+  </div>
+</section>
 
-            const gl = renderer.gl;
-            const geometry = new Triangle(gl);
 
-            const program = new Program(gl, {
-                vertex,
-                fragment,
-                uniforms: {
-                    uTime: { value: 0 },
-                    uResolution: { value: new Vec2() },
-                    uHueShift: { value: hueShift },
-                    uNoise: { value: noiseIntensity },
-                    uScan: { value: scanlineIntensity },
-                    uScanFreq: { value: scanlineFrequency },
-                    uWarp: { value: warpAmount }
-                }
-            });
 
-            const mesh = new Mesh(gl, { geometry, program });
+<!-- footer -->
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-content">
+      <!-- Brand Section -->
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M16 0L32 16L16 32L0 16L16 0Z" fill="white"/>
+          </svg>
+          <span class="footer-logo-text">AIWA<sup>®</sup></span>
+        </div>
+        <p class="footer-tagline">Social media management. Using AI.</p>
+        <div class="footer-social">
+          <a href="#" class="social-link" aria-label="Facebook">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+            </svg>
+          </a>
+          <a href="#" class="social-link" aria-label="Instagram">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+          </a>
+          <a href="#" class="social-link" aria-label="X (Twitter)">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+            </svg>
+          </a>
+          <a href="#" class="social-link" aria-label="LinkedIn">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+            </svg>
+          </a>
+          <a href="#" class="social-link" aria-label="TikTok">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
+            </svg>
+          </a>
+          <a href="#" class="social-link" aria-label="YouTube">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
 
-            const resize = () => {
-                const w = parent.clientWidth;
-                const h = parent.clientHeight;
-                renderer.setSize(w * resolutionScale, h * resolutionScale);
-                program.uniforms.uResolution.value.set(w, h);
-            };
+      <!-- Links -->
+      <div class="footer-column">
+        <h3 class="footer-title">Links</h3>
+        <ul class="footer-links">
+          <li><a href="#">Pricing</a></li>
+          <li><a href="#">Integrations</a></li>
+        </ul>
+      </div>
 
-            window.addEventListener('resize', resize);
-            resize();
+      <!-- Support -->
+      <div class="footer-column">
+        <h3 class="footer-title">Support</h3>
+        <ul class="footer-links">
+          <li><a href="#">Help Center</a></li>
+          <li><a href="#">Service status</a></li>
+          <li><a href="#">Terms of service</a></li>
+          <li><a href="#">Privacy policy</a></li>
+          <li><a href="#">Cookie policy</a></li>
+          <li><a href="#">GDPR</a></li>
+        </ul>
+      </div>
 
-            const start = performance.now();
-            let frame = 0;
+      <!-- Resources -->
+      <div class="footer-column">
+        <h3 class="footer-title">Resources</h3>
+        <ul class="footer-links">
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Affiliates</a></li>
+          <li><a href="#">Roadmap</a></li>
+        </ul>
+      </div>
 
-            const loop = () => {
-                program.uniforms.uTime.value = ((performance.now() - start) / 1000) * speed;
-                program.uniforms.uHueShift.value = hueShift;
-                program.uniforms.uNoise.value = noiseIntensity;
-                program.uniforms.uScan.value = scanlineIntensity;
-                program.uniforms.uScanFreq.value = scanlineFrequency;
-                program.uniforms.uWarp.value = warpAmount;
-                renderer.render({ scene: mesh });
-                frame = requestAnimationFrame(loop);
-            };
+      <!-- Community -->
+      <div class="footer-column footer-community">
+        <h3 class="footer-title">Community</h3>
+        <p class="community-text">Join our Facebook community to learn how to use all of our tools faster and better.</p>
+        <button class="community-button">Join Facebook group</button>
+      </div>
+    </div>
 
-            loop();
-
-            return () => {
-                cancelAnimationFrame(frame);
-                window.removeEventListener('resize', resize);
-            };
-        }
-
-        // Initialize
-        const canvas = document.getElementById('darkVeilCanvas');
-        initDarkVeil(canvas, {
-            hueShift: 38,
-            noiseIntensity: 0,
-            scanlineIntensity: 0,
-            speed: 1.5,
-            scanlineFrequency: 0.5,
-            warpAmount: 0
-        });
-    </script> -->
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+      <p class="footer-copyright">© 2026 Copyright AIWA. All Rights Reserved.</p>
+      <p class="footer-made">Made with <span class="heart">♥</span> in Lebanon</p>
+    </div>
+  </div>
+</footer>
+                             
 </body>
+ <script src="js/nav.js"></script>
+ <script src="js/logoloop.js"></script>
+ <script src="js/card.js"></script>
+ <script src="js/carousel.js"></script>
+ <script src="js/cta.js"></script>
+
+ 
+
 </html>

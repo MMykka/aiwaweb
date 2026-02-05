@@ -1,8 +1,4 @@
-* {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
@@ -13,9 +9,12 @@
         }
 
         .bluespans {
-            color: #1e90ff;
+              background: linear-gradient(135deg, #8ac4ff 0%, #0066cc 100%);
             text-decoration: underline 5px;
             text-underline-offset: 10px;
+            -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
         }
        
       .herobg {
@@ -79,4 +78,137 @@
 
         .btn-secondary:hover {
             background: rgba(255, 255, 255, 0.15);
+        }
+
+
+
+            .bolt-hero-section {
+            position: relative;
+         
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            overflow: hidden;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            background: #000000;
+            color: #ffffff;
+        }
+
+        .bolt-orb-container {
+            position: absolute;
+            top: 15%;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+        }
+
+        .bolt-orb-line {
+            width: 2px;
+            height: 120px;
+            background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.9));
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .bolt-orb {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, #ffffff, #60a5fa, #3b82f6);
+            box-shadow: 
+                0 0 30px rgba(96, 165, 250, 1),
+                0 0 60px rgba(96, 165, 250, 0.8),
+                0 0 90px rgba(96, 165, 250, 0.6),
+                0 0 120px rgba(59, 130, 246, 0.4);
+            position: relative;
+            animation: bolt-pulse 3s ease-in-out infinite;
+        }
+
+        @keyframes bolt-pulse {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 
+                    0 0 30px rgba(96, 165, 250, 1),
+                    0 0 60px rgba(96, 165, 250, 0.8),
+                    0 0 90px rgba(96, 165, 250, 0.6),
+                    0 0 120px rgba(59, 130, 246, 0.4);
+            }
+            50% {
+                transform: scale(1.1);
+                box-shadow: 
+                    0 0 40px rgba(96, 165, 250, 1),
+                    0 0 70px rgba(96, 165, 250, 0.9),
+                    0 0 100px rgba(96, 165, 250, 0.7),
+                    0 0 140px rgba(59, 130, 246, 0.5);
+            }
+        }
+
+        .bolt-glow-effect {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -40%);
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(59, 131, 246, 0.411) 0%, rgba(59, 130, 246, 0.1) 40%, transparent 60%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .bolt-hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 1200px;
+            margin-top: 200px;
+        }
+
+        .bolt-hero-title {
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: 2rem;
+            letter-spacing: -0.02em;
+            margin-top: 90px;
+        }
+
+        .bolt-hero-highlight {
+            background: linear-gradient(90deg, #e5e7eb 0%, #ffffff 50%, #e5e7eb 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+        }
+
+        .bolt-hero-subtitle {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            color: #9ca3af;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            .bolt-orb-container {
+                top: 10%;
+            }
+
+            .bolt-orb-line {
+                height: 80px;
+            }
+
+            .bolt-orb {
+                width: 30px;
+                height: 30px;
+            }
+
+            .bolt-hero-content {
+                margin-top: 150px;
+            }
+
+            .bolt-glow-effect {
+                width: 300px;
+                height: 300px;
+            }
         }
