@@ -45,8 +45,8 @@
         function createContent(data) {
             return `
                 <div class="card-icon icon-${data.glowColor}">${data.icon}</div>
-                <h2 class="card-title">${data.title}</h2>
-                <p class="card-description">${data.description}</p>
+                <h2 class="card-title2">${data.title}</h2>
+                <p class="card-description2">${data.description}</p>
                 <div class="card-features">
                     ${data.features.map(feature => `
                         <div class="feature-item">

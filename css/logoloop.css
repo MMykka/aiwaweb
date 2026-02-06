@@ -2,13 +2,21 @@
     width: 100%;
     max-width: 1000px;
     margin: 0 auto;
+    opacity: 0;
+    transform: translateY(60px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.carousel-logos.scroll-visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .logoloop {
   position: relative;
   --logoloop-gap: 32px;
   --logoloop-logoHeight: 28px;
-  --logoloop-padding: 0px;  /* ADD THIS LINE */
+  --logoloop-padding: 0px;
   --logoloop-fadeColorAuto: #000;
 }
 
@@ -80,7 +88,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: var(--logoloop-padding);  /* ADD THIS LINE */
+  padding: var(--logoloop-padding);
 }
 
 .logoloop__item img {
@@ -93,9 +101,9 @@
   pointer-events: none;
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   border-radius: 50%;
-  padding: var(--logoloop-padding);  /* ADD THIS LINE */
-  box-sizing: border-box;  /* ADD THIS LINE */
-  background: white;  /* ADD THIS LINE - for white background */
+  padding: var(--logoloop-padding);
+  box-sizing: border-box;
+  background: white;
 }
 
 .logoloop--scale-hover .logoloop__item {
@@ -187,6 +195,116 @@
   );
 }
 
+/* Integrations Section with Scroll Animations */
+.integrations-section {
+    width: 100%;
+    padding: 10px 40px;
+    background: #000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.integrations-badge {
+    display: inline-block;
+    padding: 8px 20px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    color: white;
+    margin-bottom: 30px;
+    background: transparent;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.integrations-badge.scroll-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.integrations-title {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 600;
+    line-height: 1.2;
+    text-align: center;
+    margin-bottom: 25px;
+    letter-spacing: -0.02em;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease-out 0.2s, transform 0.7s ease-out 0.2s;
+}
+
+.integrations-title.scroll-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.integrations-description {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    line-height: 1.6;
+    text-align: center;
+    color: #999;
+    max-width: 700px;
+    margin: 0 auto;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease-out 0.4s, transform 0.7s ease-out 0.4s;
+}
+
+.integrations-description.scroll-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Logo Loop Container Animations */
+.logoloop-container {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.logoloop-container.scroll-visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.logoloop-container:nth-child(1) {
+    transition-delay: 0.6s;
+}
+
+.logoloop-container:nth-child(2) {
+    transition-delay: 0.8s;
+}
+
+.logoloop-container:nth-child(3) {
+    transition-delay: 1s;
+}
+
+/* Individual logo item animations */
+.logoloop__item {
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.logoloop-container.scroll-visible .logoloop__item {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.logoloop-container.scroll-visible .logoloop__item:nth-child(1) { transition-delay: 0.1s; }
+.logoloop-container.scroll-visible .logoloop__item:nth-child(2) { transition-delay: 0.15s; }
+.logoloop-container.scroll-visible .logoloop__item:nth-child(3) { transition-delay: 0.2s; }
+.logoloop-container.scroll-visible .logoloop__item:nth-child(4) { transition-delay: 0.25s; }
+.logoloop-container.scroll-visible .logoloop__item:nth-child(5) { transition-delay: 0.3s; }
+.logoloop-container.scroll-visible .logoloop__item:nth-child(6) { transition-delay: 0.35s; }
+.logoloop-container.scroll-visible .logoloop__item:nth-child(7) { transition-delay: 0.4s; }
+.logoloop-container.scroll-visible .logoloop__item:nth-child(8) { transition-delay: 0.45s; }
+
 @media (prefers-reduced-motion: reduce) {
   .logoloop__track {
     transform: translate3d(0, 0, 0) !important;
@@ -195,57 +313,50 @@
   .logoloop__node {
     transition: none !important;
   }
+  
+  /* Disable scroll animations */
+  .carousel-logos,
+  .integrations-badge,
+  .integrations-title,
+  .integrations-description,
+  .logoloop-container,
+  .logoloop__item {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
 }
 
+/* Responsive */
+@media (max-width: 768px) {
+    .integrations-section {
+        padding: 60px 20px;
+    }
 
-      .integrations-section {
-            width: 100%;
-            padding: 10px 40px;
-            background: #000;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
+    .integrations-badge {
+        font-size: 13px;
+        padding: 6px 16px;
+    }
+    
+    .carousel-logos {
+        transform: translateY(40px);
+    }
+    
+    .logoloop-container {
+        transform: translateX(-30px);
+    }
+}
 
-        .integrations-badge {
-            display: inline-block;
-            padding: 8px 20px;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: 6px;
-            font-size: 14px;
-            font-weight: 500;
-            color: white;
-            margin-bottom: 30px;
-            background: transparent;
-        }
-
-        .integrations-title {
-            font-size: clamp(2.5rem, 6vw, 4.5rem);
-            font-weight: 600;
-            line-height: 1.2;
-            text-align: center;
-            margin-bottom: 25px;
-            letter-spacing: -0.02em;
-        }
-
-        .integrations-description {
-            font-size: clamp(1rem, 2vw, 1.25rem);
-            line-height: 1.6;
-            text-align: center;
-            color: #999;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .integrations-section {
-                padding: 60px 20px;
-            }
-
-            .integrations-badge {
-                font-size: 13px;
-                padding: 6px 16px;
-            }
-        }
+@media (max-width: 480px) {
+    .integrations-section {
+        padding: 40px 15px;
+    }
+    
+    .carousel-logos {
+        transform: translateY(30px);
+    }
+    
+    .logoloop-container {
+        transform: translateX(-20px);
+    }
+}

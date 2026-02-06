@@ -9,6 +9,72 @@
   margin: 0 auto;
 }
 
+/* Integrations Section 2 with Scroll Animations */
+.integrations-section2 {
+  width: 100%;
+  padding: 10px 40px;
+  background: #000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.integrations-badge2 {
+  display: inline-block;
+  padding: 8px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  color: white;
+  margin-bottom: 30px;
+  background: transparent;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.integrations-badge2.scroll-animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.integrations-title2 {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 600;
+  line-height: 1.2;
+  text-align: center;
+  margin-bottom: 25px;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease-out 0.2s, transform 0.7s ease-out 0.2s;
+}
+
+.integrations-title2.scroll-animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.integrations-description2 {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  line-height: 1.6;
+  text-align: center;
+  color: #999;
+  max-width: 700px;
+  margin: 0 auto;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease-out 0.4s, transform 0.7s ease-out 0.4s;
+}
+
+.integrations-description2.scroll-animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .workflows-section .badge {
   display: inline-block;
   border: 1px solid #ffffff;
@@ -18,6 +84,14 @@
   color: #ffffff;
   margin-bottom: 30px;
   font-weight: 500;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.workflows-section .badge.scroll-animate {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .workflows-section .title {
@@ -29,6 +103,14 @@
   max-width: 900px;
   margin-left: auto;
   margin-right: auto;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease-out 0.2s, transform 0.7s ease-out 0.2s;
+}
+
+.workflows-section .title.scroll-animate {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .workflows-section .description {
@@ -39,6 +121,14 @@
   max-width: 700px;
   margin-left: auto;
   margin-right: auto;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease-out 0.4s, transform 0.7s ease-out 0.4s;
+}
+
+.workflows-section .description.scroll-animate {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 @media (max-width: 768px) {
@@ -49,11 +139,28 @@
   .workflows-section .description {
     font-size: 16px;
   }
+  
+  .integrations-section2 {
+    padding: 60px 20px;
+  }
+
+  .integrations-badge2 {
+    font-size: 13px;
+    padding: 6px 16px;
+  }
 }
 
 .workflow-cards-section {
   background-color: #000000;
   padding: 60px 20px;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.workflow-cards-section.scroll-animate {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .cards-container {
@@ -72,27 +179,35 @@
   display: flex;
   flex-direction: column;
   opacity: 0;
-  transform: translateY(30px);
-  animation: fadeInUp 0.6s ease forwards;
+  transform: translateY(50px) scale(0.95);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out, background 0.3s ease;
+  will-change: transform, opacity;
 }
 
-.workflow-card:nth-child(1) {
-  animation-delay: 0.1s;
+.workflow-card.scroll-animate {
+  opacity: 1;
+  transform: translateY(0) scale(1);
 }
 
-.workflow-card:nth-child(2) {
-  animation-delay: 0.2s;
+.workflow-card:nth-child(1).scroll-animate {
+  transition-delay: 0.1s;
 }
 
-.workflow-card:nth-child(3) {
-  animation-delay: 0.3s;
+.workflow-card:nth-child(2).scroll-animate {
+  transition-delay: 0.3s;
 }
 
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.workflow-card:nth-child(3).scroll-animate {
+  transition-delay: 0.5s;
+}
+
+.workflow-card:hover {
+  background: linear-gradient(145deg, #202020 0%, #1a1a1a 100%);
+  transform: translateY(-5px) scale(1);
+}
+
+.workflow-card.scroll-animate:hover {
+  transform: translateY(-5px) scale(1.02);
 }
 
 .card-title {
@@ -100,6 +215,15 @@
   font-weight: 700;
   color: #ffffff;
   margin: 0 0 20px 0;
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.workflow-card.scroll-animate .card-title {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 0.2s;
 }
 
 .card-description {
@@ -107,6 +231,15 @@
   color: #888888;
   line-height: 1.6;
   margin: 0 0 60px 0;
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.workflow-card.scroll-animate .card-description {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 0.3s;
 }
 
 .workflow-steps {
@@ -124,18 +257,34 @@
   position: relative;
   z-index: 2;
   opacity: 0;
-  transform: translateX(-20px);
+  transform: translateX(-30px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 }
 
-.step-item.animate {
-  animation: slideInLeft 0.5s ease forwards;
+.step-item.scroll-step-animate {
+  opacity: 1;
+  transform: translateX(0);
 }
 
-@keyframes slideInLeft {
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+/* Staggered animation for steps */
+.workflow-card.scroll-animate .step-item:nth-child(1) {
+  transition-delay: 0.5s;
+}
+
+.workflow-card.scroll-animate .step-item:nth-child(3) {
+  transition-delay: 0.6s;
+}
+
+.workflow-card.scroll-animate .step-item:nth-child(5) {
+  transition-delay: 0.7s;
+}
+
+.workflow-card.scroll-animate .step-item:nth-child(7) {
+  transition-delay: 0.8s;
+}
+
+.workflow-card.scroll-animate .step-item:nth-child(9) {
+  transition-delay: 0.9s;
 }
 
 .step-icon {
@@ -147,6 +296,22 @@
   justify-content: center;
   flex-shrink: 0;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transform: scale(0.8);
+}
+
+.step-item.scroll-step-animate .step-icon {
+  animation: iconPop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes iconPop {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 .step-item:hover .step-icon {
@@ -218,8 +383,25 @@
   transition: height 0.4s ease;
 }
 
-.connector.animate {
+.connector.scroll-connector-animate {
   height: 40px;
+}
+
+/* Staggered animation for connectors */
+.workflow-card.scroll-animate .connector:nth-child(2) {
+  transition-delay: 0.55s;
+}
+
+.workflow-card.scroll-animate .connector:nth-child(4) {
+  transition-delay: 0.65s;
+}
+
+.workflow-card.scroll-animate .connector:nth-child(6) {
+  transition-delay: 0.75s;
+}
+
+.workflow-card.scroll-animate .connector:nth-child(8) {
+  transition-delay: 0.85s;
 }
 
 .connector::after {
@@ -233,11 +415,9 @@
   background-color: #555555;
   border-radius: 50%;
   opacity: 0;
-  animation: pulse 2s ease-in-out infinite;
 }
 
-.connector.animate::after {
-  opacity: 1;
+.connector.scroll-connector-animate::after {
   animation: flowDown 2s ease-in-out infinite;
 }
 
@@ -279,6 +459,7 @@
   .workflow-card {
     padding: 30px 20px;
     min-height: auto;
+    transform: translateY(30px) scale(0.95);
   }
 
   .card-title {
@@ -293,5 +474,55 @@
   .step-label {
     font-size: 13px;
     padding: 10px 16px;
+  }
+  
+  .step-item {
+    transform: translateX(-20px);
+  }
+}
+
+@media (max-width: 480px) {
+  .integrations-section2 {
+    padding: 40px 15px;
+  }
+  
+  .workflow-cards-section {
+    padding: 40px 15px;
+    transform: translateY(30px);
+  }
+  
+  .workflow-card {
+    transform: translateY(20px) scale(0.98);
+  }
+}
+
+/* Accessibility - Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .integrations-badge2,
+  .integrations-title2,
+  .integrations-description2,
+  .workflows-section .badge,
+  .workflows-section .title,
+  .workflows-section .description,
+  .workflow-cards-section,
+  .workflow-card,
+  .card-title,
+  .card-description,
+  .step-item,
+  .step-icon,
+  .connector {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    animation: none !important;
+  }
+  
+  .connector {
+    height: 40px !important;
+  }
+  
+  .connector::after {
+    animation: none !important;
+    opacity: 0.5 !important;
   }
 }
