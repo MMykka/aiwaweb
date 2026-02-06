@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="media/logo-modified.png">
     <link rel="stylesheet" href="css/hero.css">
     <link rel="stylesheet" href="css/nav.css">
     <link rel="stylesheet" href="css/logoloop.css">
@@ -10,6 +11,8 @@
     <link rel="stylesheet" href="css/workflows.css">
     <link rel="stylesheet" href="css/cta.css">
     <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/popup.css">
+    <link rel="stylesheet" href="css/orb.css">
     <title>AIWA</title>
     
 </head>
@@ -46,7 +49,7 @@
 
             <div class="nav-right">
                 <button class="theme-toggle" id="themeToggle">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <!-- <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
                         <line x1="12" y1="1" x2="12" y2="3"></line>
                         <line x1="12" y1="21" x2="12" y2="23"></line>
@@ -56,9 +59,9 @@
                         <line x1="21" y1="12" x2="23" y2="12"></line>
                         <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                    </svg>
+                    </svg> -->
                 </button>
-                <a href="#" class="btn btn-demo">Get demo</a>
+                <a href="pages/Booking.html" class="btn btn-demo">Get Demo</a>
                 <button class="mobile-menu-toggle" id="mobileMenuToggle">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <line x1="3" y1="12" x2="21" y2="12"></line>
@@ -100,16 +103,15 @@
 
             <h1>Unleash <span class="bluespans">Unlimited</span> <br> Potential Through AI</h1>
             <div class="btns">
-                <button class="btn btn-primary">Get Started</button>
-                <button class="btn btn-secondary">Learn More</button>
+                <button class="btn2 btn-primary">Get Started</button>
+                <button class="btn2 btn-secondary">Learn More</button>
             </div>
         </div> 
         
     </div>
 </section>
 
-<!-- GLOW SECTION -->
- <section class="bolt-hero-section">
+   <section class="bolt-hero-section">
         <div class="bolt-orb-container">
             <div class="bolt-orb-line"></div>
             <div class="bolt-orb"></div>
@@ -118,8 +120,7 @@
 
         <div class="bolt-hero-content">
             <h1 class="bolt-hero-title">
-                Empowering product builders<br>
-                with the <span class="bolt-hero-highlight">most powerful coding agents</span>
+                Empowering product builders <br>with the most powerful coding agents
             </h1>
             <p class="bolt-hero-subtitle">
                 AIWA does the heavy lifting for you, so you can focus on<br>
@@ -127,6 +128,7 @@
             </p>
         </div>
     </section>
+
 
 
 
@@ -181,17 +183,17 @@
             </div>
         </div>
 
-        <!-- Animated Card Section -->
-        <section class="animated-card-section">
-            <div class="card-wrapper">
-                <div class="animated-card glow-white" id="animatedCard">
-                    <div class="card-glow glow-white" id="cardGlow"></div>
-                    <div class="card-content" id="cardContent">
-                        <!-- Content will be dynamically inserted here -->
-                    </div>
+          <!-- Animated Card Section -->
+    <section class="animated-card-section">
+        <div class="card-wrapper">
+            <div class="animated-card glow-white" id="animatedCard">
+                <div class="card-glow glow-white" id="cardGlow"></div>
+                <div class="card-content" id="cardContent">
+                    <!-- Content will be dynamically inserted here -->
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
     </div>
 
 
@@ -508,7 +510,7 @@ Stop stitching together platforms. AIWA Cloud gives you enterprise-grade backend
       <div class="footer-column">
         <h3 class="footer-title">Support</h3>
         <ul class="footer-links">
-          <li><a href="#">Help Center</a></li>
+          <li><a href="">Help Center</a></li>
           <li><a href="#">Service status</a></li>
           <li><a href="#">Terms of service</a></li>
           <li><a href="#">Privacy policy</a></li>
@@ -542,13 +544,68 @@ Stop stitching together platforms. AIWA Cloud gives you enterprise-grade backend
     </div>
   </div>
 </footer>
-                             
+
+
+
+
+
+   <!-- Popup Overlay -->
+    <div class="automation-popup-overlay" id="automationPopupOverlay">
+        <div class="automation-popup-card">
+            <button class="automation-popup-close-btn" id="automationCloseBtn">×</button>
+            <div class="automation-popup-content">
+                <h2>What are you looking to automate?</h2>
+                <form id="automationForm" class="automation-popup-form">
+                    <input 
+                        type="email" 
+                        id="automationEmailInput" 
+                        name="email" 
+                        placeholder="Enter your email" 
+                        required
+                        class="automation-popup-input"
+                    >
+                    <input 
+                        type="tel" 
+                        id="automationPhoneInput" 
+                        name="phone" 
+                        placeholder="Enter your phone number" 
+                        required
+                        class="automation-popup-input"
+                    >
+                    <button type="submit" class="automation-popup-cta-btn">Sign up</button>
+                </form>
+            </div>
+        </div>
+    </div>
 </body>
+
+
  <script src="js/nav.js"></script>
  <script src="js/logoloop.js"></script>
  <script src="js/card.js"></script>
  <script src="js/carousel.js"></script>
  <script src="js/cta.js"></script>
+ <script src="js/popup.js"></script>
+ <script src="js/anim.js"></script>
+
+
+
+
+
+
+
+
+
+ <script>
+  // Rotating tab title
+const titleWords = ['Automate', 'Simplify', 'Optimize', 'Grow'];
+let titleIndex = 0;
+
+setInterval(() => {
+    titleIndex = (titleIndex + 1) % titleWords.length;
+    document.title = titleWords[titleIndex]+ " Your Business";
+}, 2000); // Changes every 2 seconds
+ </script>
 
  
 

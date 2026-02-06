@@ -4,22 +4,36 @@
             box-sizing: border-box;
         }
         
-        /* Navbar Styles */
+        /* Navbar Styles with Slide-in Animation */
         .navbar {
             position: fixed;
             top: 10px;
             left: 50%;
-            transform: translateX(-50%);
+            transform: translateX(-50%) translateY(-100px);
             width: auto;
             max-width: calc(100% - 80px);
             background-color: #171719c4;
             backdrop-filter: blur(10px);
             z-index: 1000;
-            transition: all 0.3s ease;
             padding: 12px 30px;
             border-radius: 50px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-            border: #ffffff27  solid 1px;
+            border: #ffffff27 solid 1px;
+            opacity: 0;
+            animation: slideInFromTop 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+            animation-delay: 0.2s;
+        }
+
+        /* Slide-in Animation */
+        @keyframes slideInFromTop {
+            0% {
+                transform: translateX(-50%) translateY(-100px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(-50%) translateY(0);
+                opacity: 1;
+            }
         }
 
         .navbar-container {
@@ -41,7 +55,7 @@
             display: flex;
             align-items: center;
             gap: 15px;
-            margin-left: 400px;
+            margin-left: 300px;
             transition: margin-left 0.3s ease;
         }
         
@@ -62,10 +76,9 @@
         }
 
         .aiwa {
-        color: white;
-        text-decoration: none;
+            color: white;
+            text-decoration: none;
         }
-
 
         .logo-icon {
             width: 28px;
@@ -76,8 +89,6 @@
             justify-content: center;
             transition: all 0.3s ease;
         }
-
-     
 
         /* Navigation Links */
         .nav-links {
@@ -103,7 +114,7 @@
             color: #e0e0e0;
         }
 
-       .badge {
+        .badge {
             background: linear-gradient(135deg, #8ac4ff 0%, #0066cc 100%);
             color: white;
             padding: 1px 6px;
@@ -123,7 +134,7 @@
             transform: rotate(180deg);
         }
 
-        /* Right Section - already defined above with margin-left */
+        /* Right Section */
         .theme-toggle {
             background: none;
             border: none;

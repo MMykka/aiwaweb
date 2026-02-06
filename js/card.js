@@ -1,4 +1,5 @@
- const contents = [
+
+        const contents = [
             {
                 icon: '⚡',
                 title: 'Lightning Fast Performance',
@@ -32,17 +33,7 @@
                 ],
                 glowColor: 'yellow'
             },
-            {
-                icon: '🤖',
-                title: 'AI-Powered Automation',
-                description: 'Let AI handle the repetitive tasks while you focus on what matters most - building great products.',
-                features: [
-                    { icon: '✨', text: 'Smart suggestions' },
-                    { icon: '🔄', text: 'Auto-completion' },
-                    { icon: '🎯', text: 'Error prevention' }
-                ],
-                glowColor: 'none'
-            }
+          
         ];
 
         let currentIndex = 0;
@@ -68,9 +59,11 @@
         }
 
         function updateGlowColor(color) {
+            // Remove all glow classes
             animatedCard.classList.remove('glow-white', 'glow-blue', 'glow-yellow', 'glow-none');
             cardGlow.classList.remove('glow-white', 'glow-blue', 'glow-yellow', 'glow-none');
             
+            // Add new glow class
             animatedCard.classList.add(`glow-${color}`);
             cardGlow.classList.add(`glow-${color}`);
         }
@@ -79,38 +72,53 @@
             if (isTransitioning) return;
             isTransitioning = true;
 
+            // Start fade out
             cardContent.classList.remove('fade-in');
             cardContent.classList.add('fade-out');
             
+            // Wait for fade out to complete
             setTimeout(() => {
+                // Update index
                 currentIndex = (currentIndex + 1) % contents.length;
                 const currentContent = contents[currentIndex];
                 
+                // Update content
                 cardContent.innerHTML = createContent(currentContent);
+                
+                // Update glow color
                 updateGlowColor(currentContent.glowColor);
                 
-                requestAnimationFrame(() => {
-                    requestAnimationFrame(() => {
-                        cardContent.classList.remove('fade-out');
-                        cardContent.classList.add('fade-in');
-                        
-                        setTimeout(() => {
-                            isTransitioning = false;
-                        }, 800);
-                    });
-                });
-            }, 500);
+                // Small delay before fade in for smoother transition
+                setTimeout(() => {
+                    cardContent.classList.remove('fade-out');
+                    cardContent.classList.add('fade-in');
+                    
+                    // Reset transition lock after fade in completes
+                    setTimeout(() => {
+                        isTransitioning = false;
+                    }, 800);
+                }, 50);
+            }, 600);
         }
 
         // Initialize
         cardContent.innerHTML = createContent(contents[0]);
         updateGlowColor(contents[0].glowColor);
+        
+        // Trigger initial fade in
         setTimeout(() => {
             cardContent.classList.add('fade-in');
         }, 100);
 
         // Auto-cycle every 5 seconds
-        setInterval(updateContent, 5000);
+        setInterval(updateContent, 4000);
+
+
+
+
+
+// workflows
+
 
 
 

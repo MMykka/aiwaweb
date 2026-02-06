@@ -187,10 +187,10 @@
             background-clip: text;
         }
 
-        /* Animated Card Section */
+              /* Animated Card Section */
         .animated-card-section {
-            min-height: auto;
-            padding: 0;
+            width: 100%;
+            max-width: 1200px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -213,21 +213,8 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-            mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 60%, rgba(0, 0, 0, 0.3) 150%);
-            -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 60%, rgba(0, 0, 0, 0.3) 110%);
-        }
-
-        .animated-card::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 40%;
-            background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.7));
-            pointer-events: none;
-            z-index: 1;
+            transition: box-shadow 0.8s cubic-bezier(0.4, 0, 0.2, 1), 
+                        border-color 0.8s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .animated-card::before {
@@ -241,9 +228,10 @@
             -webkit-mask-composite: xor;
             mask-composite: exclude;
             pointer-events: none;
-            transition: background 0.6s ease;
+            transition: background 0.8s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
+        /* Glow variations */
         .animated-card.glow-white::before {
             background: linear-gradient(to bottom, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.3) 60%, transparent 100%);
         }
@@ -279,32 +267,34 @@
         }
 
         .animated-card.glow-none {
-            box-shadow: none;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
         }
 
+        /* Rotating glow effect */
         .card-glow {
             position: absolute;
             top: -50%;
             left: -50%;
             width: 200%;
-            height: 300%;
-            background: radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.15), transparent 60%);
-            animation: rotate-glow 8s linear infinite;
+            height: 200%;
+            background: radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.12), transparent 60%);
+            animation: rotate-glow 10s linear infinite;
             pointer-events: none;
             opacity: 1;
-            transition: opacity 0.8s ease, background 0.8s ease;
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), 
+                        background 0.8s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .card-glow.glow-white {
-            background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.15), transparent 60%);
+            background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.12), transparent 60%);
         }
 
         .card-glow.glow-blue {
-            background: radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.15), transparent 60%);
+            background: radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.12), transparent 60%);
         }
 
         .card-glow.glow-yellow {
-            background: radial-gradient(circle at 50% 50%, rgba(251, 191, 36, 0.15), transparent 60%);
+            background: radial-gradient(circle at 50% 50%, rgba(251, 191, 36, 0.12), transparent 60%);
         }
 
         .card-glow.glow-none {
@@ -320,43 +310,49 @@
             }
         }
 
+        /* Card content with improved transitions */
         .card-content {
             position: relative;
             z-index: 2;
             opacity: 1;
-            transform: translateY(0) scale(1);
+            transform: translateY(0);
         }
 
         .card-content.fade-out {
-            animation: fadeOutDown 0.5s cubic-bezier(0.4, 0, 0.6, 1) forwards;
+            animation: smoothFadeOut 0.6s cubic-bezier(0.4, 0, 0.6, 1) forwards;
         }
 
         .card-content.fade-in {
-            animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+            animation: smoothFadeIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
         }
 
-        @keyframes fadeOutDown {
+        @keyframes smoothFadeOut {
             0% {
                 opacity: 1;
                 transform: translateY(0) scale(1);
+                filter: blur(0px);
             }
             100% {
                 opacity: 0;
-                transform: translateY(40px) scale(0.95);
+                transform: translateY(30px) scale(0.98);
+                filter: blur(4px);
             }
         }
 
-        @keyframes fadeInUp {
+        @keyframes smoothFadeIn {
             0% {
                 opacity: 0;
-                transform: translateY(40px) scale(0.95);
+                transform: translateY(-30px) scale(0.98);
+                filter: blur(4px);
             }
             100% {
                 opacity: 1;
                 transform: translateY(0) scale(1);
+                filter: blur(0px);
             }
         }
 
+        /* Card icon with smooth transitions */
         .card-icon {
             width: 80px;
             height: 80px;
@@ -368,7 +364,7 @@
             margin-bottom: 2rem;
             font-size: 2.5rem;
             box-shadow: 0 10px 40px rgba(59, 130, 246, 0.3);
-            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
         .card-icon.icon-white {
@@ -406,13 +402,13 @@
             line-height: 1.7;
             color: #9ca3af;
             max-width: 700px;
+            margin-bottom: 2rem;
         }
 
         .card-features {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 1.5rem;
-            margin-top: 2rem;
         }
 
         .feature-item {
@@ -425,23 +421,27 @@
         }
 
         .card-content.fade-in .feature-item {
-            animation: slideInLeft 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+            animation: slideInFeature 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
         }
 
         .card-content.fade-in .feature-item:nth-child(1) {
-            animation-delay: 0.2s;
-        }
-
-        .card-content.fade-in .feature-item:nth-child(2) {
             animation-delay: 0.3s;
         }
 
-        .card-content.fade-in .feature-item:nth-child(3) {
+        .card-content.fade-in .feature-item:nth-child(2) {
             animation-delay: 0.4s;
         }
 
-        @keyframes slideInLeft {
-            to {
+        .card-content.fade-in .feature-item:nth-child(3) {
+            animation-delay: 0.5s;
+        }
+
+        @keyframes slideInFeature {
+            0% {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            100% {
                 opacity: 1;
                 transform: translateX(0);
             }
@@ -452,36 +452,16 @@
         }
 
         /* Responsive */
-        @media (max-width: 1024px) {
-            .feature-row {
-                grid-template-columns: 1fr;
-            }
-
-            .ai-tools-card {
-                grid-template-columns: 1fr;
-            }
-        }
-
         @media (max-width: 768px) {
             .animated-card {
                 padding: 2.5rem;
-                min-height: 400px;
+                min-height: 500px;
             }
 
             .card-features {
                 grid-template-columns: 1fr;
             }
-
-            .feature-card {
-                padding: 2rem;
-            }
-
-            .stats-number {
-                font-size: 4rem;
-            }
         }
-    
-
 
         /* next */
 
