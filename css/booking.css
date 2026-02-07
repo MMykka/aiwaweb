@@ -1,0 +1,376 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+    background: #000000;
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+/* VIDEO SECTION */
+.video-section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 120px 20px 80px 20px;
+    background: linear-gradient(180deg, #000000 0%, #0a0a0a 100%);
+    position: relative;
+}
+
+.video-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.15) 0%, rgba(59, 130, 246, 0.08) 40%, transparent 70%);
+    pointer-events: none;
+}
+
+.video-section::after {
+    content: '';
+    position: absolute;
+    top: 20%;
+    left: 10%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(96, 165, 250, 0.1) 0%, transparent 70%);
+    pointer-events: none;
+    filter: blur(60px);
+    animation: floatGlow 8s ease-in-out infinite;
+}
+
+@keyframes floatGlow {
+    0%, 100% {
+        transform: translate(0, 0);
+        opacity: 0.6;
+    }
+    50% {
+        transform: translate(50px, 30px);
+        opacity: 0.8;
+    }
+}
+
+.video-container {
+    max-width: 1200px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.video-title {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+    background: linear-gradient(135deg, #ffffff 0%, #8ac4ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: fadeInUp 0.8s ease-out 0.2s forwards;
+    opacity: 0;
+    filter: drop-shadow(0 0 20px rgba(138, 196, 255, 0.3));
+}
+
+.video-subtitle {
+    font-size: clamp(1.125rem, 2vw, 1.5rem);
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 3rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+    animation: fadeInUp 0.8s ease-out 0.4s forwards;
+    opacity: 0;
+}
+
+.video-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 
+        0 20px 60px rgba(0, 0, 0, 0.5),
+        0 0 1px rgba(59, 130, 246, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(59, 130, 246, 0.4);
+    position: relative;
+    background: #000000;
+    animation: fadeInUp 0.8s ease-out 0.6s forwards;
+    opacity: 0;
+}
+
+.video-wrapper::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(135deg, 
+        rgba(59, 130, 246, 0.5), 
+        rgba(96, 165, 250, 0.3), 
+        rgba(37, 99, 235, 0.4));
+    border-radius: 24px;
+    z-index: -1;
+    opacity: 0.7;
+    filter: blur(16px);
+    animation: glowPulse 4s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+    0%, 100% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 0.9;
+    }
+}
+
+.video-wrapper video,
+.video-wrapper iframe {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    display: block;
+    border: none;
+}
+
+/* BOOKING SECTION */
+.booking-section {
+    min-height: 100vh;
+    padding: 100px 20px;
+    background: #000000;
+    position: relative;
+}
+
+.booking-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.12) 0%, rgba(59, 130, 246, 0.05) 40%, transparent 60%);
+    pointer-events: none;
+}
+
+.booking-section::after {
+    content: '';
+    position: absolute;
+    bottom: 20%;
+    right: 10%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(96, 165, 250, 0.08) 0%, transparent 70%);
+    pointer-events: none;
+    filter: blur(50px);
+    animation: floatGlowReverse 10s ease-in-out infinite;
+}
+
+@keyframes floatGlowReverse {
+    0%, 100% {
+        transform: translate(0, 0);
+        opacity: 0.5;
+    }
+    50% {
+        transform: translate(-30px, -40px);
+        opacity: 0.7;
+    }
+}
+
+.booking-container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.booking-header {
+    text-align: center;
+    margin-bottom: 60px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.booking-header.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.booking-header h2 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, #ffffff 0%, #60a5fa 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 15px rgba(96, 165, 250, 0.25));
+}
+
+.booking-header p {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    color: rgba(255, 255, 255, 0.7);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.booking-grid {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+    transition-delay: 0.2s;
+}
+
+.booking-grid.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* CALENDLY CARD */
+.calendly-card {
+    background: rgba(10, 10, 10, 0.8);
+    border: 1px solid rgba(59, 130, 246, 0.4);
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: 
+        0 20px 60px rgba(0, 0, 0, 0.5),
+        0 0 40px rgba(59, 130, 246, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    position: relative;
+    overflow: hidden;
+}
+
+.calendly-card::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    right: -1px;
+    bottom: -1px;
+    background: linear-gradient(135deg, 
+        rgba(59, 130, 246, 0.3), 
+        rgba(96, 165, 250, 0.15), 
+        rgba(37, 99, 235, 0.2));
+    border-radius: 24px;
+    z-index: -1;
+    opacity: 0.6;
+    filter: blur(12px);
+}
+
+.calendly-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: #ffffff;
+    text-align: left;
+    text-shadow: 0 0 20px rgba(96, 165, 250, 0.2);
+}
+
+.calendly-embed {
+    min-height: 700px;
+    height: 700px;
+    border-radius: 12px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.02);
+    box-shadow: inset 0 0 30px rgba(59, 130, 246, 0.05);
+}
+
+.calendly-inline-widget {
+    width: 100%;
+    height: 100%;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .video-section {
+        padding: 60px 20px;
+    }
+
+    .video-section::after {
+        width: 400px;
+        height: 400px;
+    }
+
+    .booking-section {
+        padding: 60px 20px;
+    }
+
+    .booking-section::after {
+        width: 350px;
+        height: 350px;
+    }
+
+    .calendly-card {
+        padding: 30px 20px;
+    }
+
+    .calendly-title {
+        font-size: 1.5rem;
+    }
+
+    .booking-header {
+        margin-bottom: 40px;
+    }
+
+    .calendly-embed {
+        min-height: 600px;
+        height: 600px;
+    }
+}
+
+@media (max-width: 480px) {
+    .video-wrapper {
+        border-radius: 16px;
+    }
+
+    .video-section::after {
+        width: 300px;
+        height: 300px;
+    }
+
+    .booking-section::after {
+        width: 250px;
+        height: 250px;
+    }
+
+    .calendly-card {
+        border-radius: 16px;
+        padding: 25px 15px;
+    }
+
+    .calendly-embed {
+        min-height: 550px;
+        height: 550px;
+    }
+}
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}

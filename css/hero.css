@@ -39,6 +39,7 @@ body {
     padding: 20px;
     position: relative;
     overflow: hidden;
+   
 }
 
 /* Animated background overlay */
@@ -75,7 +76,7 @@ body {
 }
 
 .hero {
-    transform: translateY(-80px);
+    transform: translateY(-100px);
     animation: fadeInUp 1s ease-out forwards;
     opacity: 0;
 }

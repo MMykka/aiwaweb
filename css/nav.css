@@ -3,6 +3,9 @@
             padding: 0;
             box-sizing: border-box;
         }
+        body{
+            overflow-x: hidden;
+        }
         
         /* Navbar Styles with Slide-in Animation */
         .navbar {

@@ -307,3 +307,39 @@ function initFeaturesGridScrollAnimations() {
 
 // Initialize the features grid scroll animations
 initFeaturesGridScrollAnimations();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ // CTA Section Scroll Animation
+  const ctaObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate');
+        // Optional: Stop observing after animation triggers
+        ctaObserver.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.2, // Trigger when 20% of the element is visible
+    rootMargin: '0px 0px -50px 0px' // Trigger slightly before element enters viewport
+  });
+
+  // Observe the CTA container
+  const ctaContainer = document.querySelector('.cta-container');
+  if (ctaContainer) {
+    ctaObserver.observe(ctaContainer);
+  }
